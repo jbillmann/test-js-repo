@@ -15,7 +15,7 @@ RUN npm install --include=dev
 
 # Copy source and build
 COPY . .
-RUN npm run build
+RUN npm run bbuild
 
 # Runtime stage - serve static files with nginx
 FROM nginx:stable-alpine AS runtime
