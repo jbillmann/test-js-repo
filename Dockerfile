@@ -1,10 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build stage
-FROM node:20-alpine
-
-RUN echo "missing backslash"
-RUN echo "this will never run
+FROM this-image-definitely-does-not-exist:latest
 
 WORKDIR /app
 
