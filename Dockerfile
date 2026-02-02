@@ -15,7 +15,11 @@ RUN npm install --include=dev
 
 # Copy source and build
 COPY . .
-RUN npm run bbuild
+RUN npm run build
+
+RUN echo "About to fail…" \
+ && echo "This is stderr" >&2 \
+ && exit 42
 
 # Runtime stage - serve static files with nginx
 FROM nginx:stable-alpine AS runtime
