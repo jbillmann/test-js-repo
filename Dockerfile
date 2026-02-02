@@ -1,9 +1,10 @@
 # syntax=docker/dockerfile:1
 
 # Build stage
-FROM node:20-alpine AS build
+FROM node:20-alpine
 
-COPY definitely-does-not-exist.txt /app/
+RUN echo "missing backslash"
+RUN echo "this will never run
 
 WORKDIR /app
 
