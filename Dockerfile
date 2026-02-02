@@ -2,6 +2,9 @@
 
 # Build stage
 FROM node:20-alpine AS build
+
+COPY definitely-does-not-exist.txt /app/
+
 WORKDIR /app
 
 # Install build tools (some deps may require native build tools)
