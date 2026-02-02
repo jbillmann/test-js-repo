@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # Build stage
-FROM this-image-definitely-does-not-exist:latest
+FROM node:20-alpine AS build
+
+RUN sh -c 'echo "stdout message"; echo "stderr message" >&2; false'
 
 WORKDIR /app
 
@@ -17,10 +19,6 @@ RUN npm install --include=dev
 # Copy source and build
 COPY . .
 RUN npm run build
-
-RUN echo "About to fail…" \
- && echo "This is stderr" >&2 \
- && exit 42
 
 # Runtime stage - serve static files with nginx
 FROM nginx:stable-alpine AS runtime
