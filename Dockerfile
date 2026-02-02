@@ -3,8 +3,6 @@
 # Build stage
 FROM node:20-alpine AS build
 
-RUN sh -c 'echo "stdout message"; echo "stderr message" >&2; false'
-
 WORKDIR /app
 
 # Install build tools (some deps may require native build tools)
